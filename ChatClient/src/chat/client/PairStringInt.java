@@ -1,11 +1,14 @@
 package chat.client;
 
-public class PairStringString {
+/**
+ * some pair class with string and integer
+ */
+public class PairStringInt {
 
     private String ipToConnect;
-    private String portToConnect;
+    private int portToConnect;
 
-    public PairStringString(String ipToConnect, String portToConnect) {
+    public PairStringInt(String ipToConnect, int portToConnect) {
         this.ipToConnect = ipToConnect;
         this.portToConnect = portToConnect;
     }
@@ -18,11 +21,11 @@ public class PairStringString {
         this.ipToConnect = ipToConnect;
     }
 
-    public String getPortToConnect() {
+    public int getPortToConnect() {
         return portToConnect;
     }
 
-    private void setPortToConnect(String portToConnect) {
+    private void setPortToConnect(int portToConnect) {
         this.portToConnect = portToConnect;
     }
 }
