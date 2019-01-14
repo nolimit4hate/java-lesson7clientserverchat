@@ -1,0 +1,5 @@
+package chat.server;
+
+public enum WhatToPrint {
+    CLIENT_CONNECTED, CLIENT_DISCONNECTED, MESSAGE, SERVERONLY, ENTRYERROR, PORTERROR;
+}
