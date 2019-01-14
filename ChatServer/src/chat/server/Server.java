@@ -92,9 +92,9 @@ public class Server implements TCPConnectionListener {
             if (helloMessage != null && helloMessage.startsWith(mNumber)) {
                 // send handshake message that is MAGIC_NUMBER + 1010
                 tcpConnection.sendString(Integer.toString(MAGIC_NUMBER + 1010));
-                serverOutput.sendToAllConnections(CLIENT_CONNECTED, tcpConnection.toString());
                 String clientID = helloMessage.substring(mNumber.length());
                 connectionz.put(clientID, tcpConnection);
+                serverOutput.sendToAllConnections(CLIENT_CONNECTED, tcpConnection.toString());
             }
             // if didnt pass request then just keep it and output information about connection only on server screen
             else

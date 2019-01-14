@@ -25,7 +25,7 @@ public class ClientCheckWriteSocketParams {
         if (stringArr.length != 1 || validResult == false ||
                 isIPBeginsOfMyIP(stringArr[0]) == false) {
             ClientPrint.printErrorMessage(ENTRYERROR);
-            throw new RuntimeException();
+            System.exit(0);
         }
     }
 

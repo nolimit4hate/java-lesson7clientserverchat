@@ -2,6 +2,7 @@ package chat.client;
 
 import java.io.IOException;
 import java.net.SocketException;
+import java.util.Map;
 import java.util.UUID;
 
 import network.*;
@@ -48,7 +49,15 @@ public class Client implements TCPConnectionListener {
      */
     public static void main(String[] args) throws RuntimeException, SocketException {
         ClientCheckWriteSocketParams cheker = new ClientCheckWriteSocketParams();
-        cheker.checkEnteringDataInMainArgs(args);
+        try {
+            cheker.checkEnteringDataInMainArgs(args);
+        } catch (RuntimeException ex){
+            ClientPrint.printErrorMessage(ENTRYERROR);
+            System.exit(0);
+        } catch (SocketException ex){
+            ClientPrint.printErrorMessage(SOCKET_EXCEPTION);
+            System.exit(0);
+        }
         PairStringInt ipPort = cheker.parseAddress(args[0]);
         new Client(ipPort.getIpToConnect(), ipPort.getPortToConnect());
     }
@@ -69,6 +78,7 @@ public class Client implements TCPConnectionListener {
             ClientPrint.printErrorMessage(NOT_RESPOND_REQUEST);
             System.exit(0);
         }
+        System.out.println("You connected...\nTo quit enter qqb");
     }
 
     @Override

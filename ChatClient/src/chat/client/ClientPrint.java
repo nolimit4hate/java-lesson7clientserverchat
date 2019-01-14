@@ -27,9 +27,11 @@ public class ClientPrint {
 
     public static void printExceptionMessage(WhatToPrint whatToPrint, Exception ex){
         if(whatToPrint == IO_EXCEPTION)
-            System.out.println("Connection exception:" + ex + "\nServer not found, try another time");
+            System.out.println("Connection exception: " + ex + "\nServer not found, try another time");
         if(whatToPrint == CONNECTION_EX)
-            System.out.println(("Connection exception:" + ex + "\nConnection lost"));
+            System.out.println(("Connection exception: " + ex + "\nConnection lost"));
+        if(whatToPrint == SOCKET_EXCEPTION)
+            System.out.println("Connection exception: " + ex + "\nSocket error");
 
     }
 
