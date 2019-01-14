@@ -1,11 +1,12 @@
 package chat.client;
 
+import network.TCPConnection;
+import network.TCPConnectionListener;
+
 import java.io.IOException;
 import java.net.SocketException;
-import java.util.Map;
 import java.util.UUID;
 
-import network.*;
 import static network.Const.MAGIC_NUMBER;
 import static network.WhatToPrint.*;
 
@@ -43,6 +44,7 @@ public class Client implements TCPConnectionListener {
      * ENTERING POINT
      ******************************************************
      */
+
     /**
      * check string for: 1) is there one string entering 2) is there correct format of ip and port.
      * then trying to create connection to the server
@@ -51,10 +53,10 @@ public class Client implements TCPConnectionListener {
         ClientCheckWriteSocketParams cheker = new ClientCheckWriteSocketParams();
         try {
             cheker.checkEnteringDataInMainArgs(args);
-        } catch (RuntimeException ex){
+        } catch (RuntimeException ex) {
             ClientPrint.printErrorMessage(ENTRYERROR);
             System.exit(0);
-        } catch (SocketException ex){
+        } catch (SocketException ex) {
             ClientPrint.printErrorMessage(SOCKET_EXCEPTION);
             System.exit(0);
         }
@@ -74,7 +76,7 @@ public class Client implements TCPConnectionListener {
     public void onConnectionReady(TCPConnection tcpConnection) {
         connection.sendString(Integer.toString(magicNumber) + clientID);
         String hello = connection.getString();
-        if(hello == null || !hello.equals(Integer.toString(MAGIC_NUMBER + 1010))){
+        if (hello == null || !hello.equals(Integer.toString(MAGIC_NUMBER + 1010))) {
             ClientPrint.printErrorMessage(NOT_RESPOND_REQUEST);
             System.exit(0);
         }

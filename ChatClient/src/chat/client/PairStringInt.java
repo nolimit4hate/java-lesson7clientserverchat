@@ -17,15 +17,8 @@ public class PairStringInt {
         return ipToConnect;
     }
 
-    private void setIpToConnect(String ipToConnect) {
-        this.ipToConnect = ipToConnect;
-    }
-
     public int getPortToConnect() {
         return portToConnect;
     }
 
-    private void setPortToConnect(int portToConnect) {
-        this.portToConnect = portToConnect;
-    }
 }

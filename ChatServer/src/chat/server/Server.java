@@ -57,7 +57,7 @@ public class Server implements TCPConnectionListener {
         helps constructor Server()
         running server
      */
-    private void serverRun(ServerSocket serverSocket){
+    private void serverRun(ServerSocket serverSocket) {
         System.out.println("Server started...");
         while (true) {
             try {

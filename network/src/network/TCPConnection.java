@@ -73,9 +73,6 @@ public class TCPConnection {
         rxThread.start();
     }
 
-
-
-
     public synchronized void sendString(String strValue) {
         try {
             out.write(strValue + "\r\n");

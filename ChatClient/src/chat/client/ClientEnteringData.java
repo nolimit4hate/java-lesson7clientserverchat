@@ -10,7 +10,7 @@ public class ClientEnteringData {
      * realized console entering data by client
      */
 
-    public static void scannerRun(TCPConnection connection, String clientID){
+    public static void scannerRun(TCPConnection connection, String clientID) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             if (scanner.hasNextLine()) {

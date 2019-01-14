@@ -15,15 +15,15 @@ public class ServerCheckInputClientData {
     private TCPConnection tcpConnection;
 
     public ServerCheckInputClientData(List<TCPConnection> connections, Map<String, TCPConnection> clients,
-                                      TCPConnection tcpConnection){
+                                      TCPConnection tcpConnection) {
         this.clients = clients;
         this.connections = connections;
         this.tcpConnection = tcpConnection;
     }
 
-    public void checkInputData(String strValue){
+    public void checkInputData(String strValue) {
         ServerOutputData serverOutput = new ServerOutputData(connections, clients);
-        // id length is 36
+        // ID length is 36
         if (strValue != null && strValue.length() > 36) {
             String message = strValue.substring(0, strValue.length() - 36);
             String clientID = strValue.substring(strValue.length() - 36);

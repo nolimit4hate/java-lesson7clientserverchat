@@ -13,10 +13,11 @@ public class ServerOutputData {
     private Map<String, TCPConnection> clients;
     private List<TCPConnection> connections;
 
-    public ServerOutputData(List<TCPConnection> connections, Map<String, TCPConnection> clients){
+    public ServerOutputData(List<TCPConnection> connections, Map<String, TCPConnection> clients) {
         this.clients = clients;
         this.connections = connections;
     }
+
     /**
      * what print on server screen and what send to all or client connections
      * depends from whatToPrint

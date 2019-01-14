@@ -1,12 +1,13 @@
 package chat.server;
 
+import AdressValidation.IPAdressValidation;
+import AdressValidation.WhatPatternUse;
 import network.WhatToPrint;
 
 import static network.WhatToPrint.ENTRYERROR;
 import static network.WhatToPrint.PORTERROR;
 
 public class ServerCheckEnteringData {
-
 
     /**
      * check entering data = array of string. if data incorrect throw exception
@@ -15,8 +16,8 @@ public class ServerCheckEnteringData {
      */
 
     public static void checkEnteringDataInMainArgs(String[] stringArr) throws RuntimeException {
-        if (stringArr.length != 1 || isInteger(stringArr[0]) == false ||
-                Integer.parseInt(stringArr[0]) < 1100 || Integer.parseInt(stringArr[0]) > 65500) {
+        IPAdressValidation validation = new IPAdressValidation(WhatPatternUse.USE_PATTERN_PORT);
+        if (stringArr.length != 1 || validation.validate(stringArr[0]) == false) {
             outputErrorMessage(ENTRYERROR);
             System.exit(0);
         }
