@@ -18,7 +18,7 @@ public class ServerCheckEnteringData {
         if (stringArr.length != 1 || isInteger(stringArr[0]) == false ||
                 Integer.parseInt(stringArr[0]) < 1100 || Integer.parseInt(stringArr[0]) > 65500) {
             outputErrorMessage(ENTRYERROR);
-            throw new RuntimeException();
+            System.exit(0);
         }
     }
 
