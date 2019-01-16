@@ -17,7 +17,7 @@ public class ClientPrint {
             System.err.println("Use jar like: java -jar jarName.jar IP_ADRESS:PORT_NUMBER\n" +
                     "When IP_ADRESS is four integer separated by . in range from 0..255\n" +
                     "When PORT_NUMBER is integer in range from 1100..65500\n" +
-                    "Example: java -jar Client.jar 127.127.127.127:8088\n" +
+                    "Example: java -jar ClientMain.jar 127.127.127.127:8088\n" +
                     "Also see your ip with \"ifconfig\" command");
         if (whatToPrint == NOT_RESPOND_REQUEST)
             System.err.println("Connection exception:\nServer not respond request.");

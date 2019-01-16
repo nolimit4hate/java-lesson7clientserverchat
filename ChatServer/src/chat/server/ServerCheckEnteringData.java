@@ -33,7 +33,7 @@ public class ServerCheckEnteringData {
         if (whatToPrint == ENTRYERROR)
             System.err.println("Use jar like: java -jar jarName.jar PORT_NUMBER\n" +
                     "When PORT_NUMBER is integer in range from 1100 to 65500\n" +
-                    "Example: java -jar Server.jar 8088");
+                    "Example: java -jar ServerMain.jar 8088");
         if (whatToPrint == PORTERROR)
             System.err.println("Your port is already listened. Enter another port!");
     }

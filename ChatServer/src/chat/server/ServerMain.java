@@ -20,7 +20,7 @@ import static network.WhatToPrint.*;
  * take/send messages to all clients.
  */
 
-public class Server implements TCPConnectionListener {
+public class ServerMain implements TCPConnectionListener {
 
     /**
      * @param connectionz is Map of clients(all connections from our application client)
@@ -30,7 +30,7 @@ public class Server implements TCPConnectionListener {
     private final Map<String, TCPConnection> connectionz = new HashMap<>();
     private final List<TCPConnection> connections = new ArrayList<>();
 
-    private Server(int socketPort) {
+    private ServerMain(int socketPort) {
         try (ServerSocket serverSocket = new ServerSocket(socketPort)) {
             serverRun(serverSocket);
         } catch (IOException ex) {
@@ -50,15 +50,15 @@ public class Server implements TCPConnectionListener {
     public static void main(String[] args) throws RuntimeException {
         ServerCheckEnteringData checker = new ServerCheckEnteringData();
         checker.checkEnteringDataInMainArgs(args);
-        new Server(Integer.parseInt(args[0]));
+        new ServerMain(Integer.parseInt(args[0]));
     }
 
     /*
-        helps constructor Server()
+        helps constructor ServerMain()
         running server
      */
     private void serverRun(ServerSocket serverSocket) {
-        System.out.println("Server started...");
+        System.out.println("ServerMain started...");
         while (true) {
             try {
                 new TCPConnection(this, serverSocket.accept());
